@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function to calculate string statistics
+void Stats(const string& text) {
+
+    int totalChars = 0;
+    int totalSpaces = 0;
+    int totalTabs = 0;
+    int totalLines = 0;
+
+    for (char c : text) { // For every character c in the collection, text.
+
+        totalChars++; // Counting every character including spaces/tabs
+
+        if (c == ' ') {
+            totalSpaces++;
+
+        } else if (c == '\t') {
+            totalTabs++;
+
+        } else if (c == '\n') {
+            totalLines++;
+        }
+    }
+
+    cout << "\n--- String ---" << endl; // Displaying the results
+    cout << "Total Characters: " << totalChars << endl;
+    cout << "Total Spaces:     " << totalSpaces << endl;
+    cout << "Total Tabs:       " << totalTabs << endl;
+    cout << "Total Lines:      " << totalLines << endl;
+}
+
+int main() {
+
+    string Input;
+
+    cout << "Enter your text: ";
+
+    // This reads everything until you hit Enter
+    getline(cin, Input);
+
+    // Run the function
+    Stats(Input);
+
+    return 0;
+}
