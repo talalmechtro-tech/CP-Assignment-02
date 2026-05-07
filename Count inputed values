@@ -1,0 +1,23 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int countChars(string t)  { int c=0; for(int i=0;i<t.length();i++) c++; return c; }
+int countSpaces(string t) { int c=0; for(int i=0;i<t.length();i++) if(t[i]==' ')  c++; return c; }
+int countTabs(string t)   { int c=0; for(int i=0;i<t.length();i++) if(t[i]=='\t') c++; return c; }
+int countLines(string t)  { int c=1; for(int i=0;i<t.length();i++) if(t[i]=='\n') c++; return c; }
+
+int main(){
+    string text = "", line;
+    cout << "Enter text (type END to stop):" << endl;
+    while(true){
+        getline(cin, line);
+        if(line == "END") break;
+        text += line + "\n";
+    }
+    cout << "Characters : " << countChars(text)  << endl;
+    cout << "Spaces     : " << countSpaces(text) << endl;
+    cout << "Tabs       : " << countTabs(text)   << endl;
+    cout << "Lines      : " << countLines(text)  << endl;
+    return 0;
+}
